@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Billing System</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			padding-top: 20px;
+			font-size: 36px;
+			color: #E11299;
+		}
+		.container {
+			margin: auto;
+			width: 80%;
+			padding: 20px;
+			background-color: #F5F5F5;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+		}
+		.form-group {
+			margin-bottom: 10px;
+		}
+		.form-group label {
+			display: inline-block;
+			width: 150px;
+			font-weight: bold;
+		}
+		.form-group input {
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #CCC;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.btn {
+			background-color: #E11299;
+			color: #FFF;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.btn:hover {
+			background-color: #C20F86;
+		}
+		.result {
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #FFF;
+			border-radius: 5px;
+			border: 1px solid #CCC;
+		}
+		@media screen and (max-width: 768px) {
+			.container {
+				width: 100%;
+			}
+			.form-group label {
+				display: block;
+				margin-bottom: 5px;
+			}
+			.form-group input {
+				width: calc(100% - 30px);
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>WELCOME TO D MART BILLING SYSTEM</h1>
+	<div class="container">
+		<form>
+			<div class="form-group">
+				<label for="itm1">Item 1 Price:</label>
+				<input type="number" id="itm1" name="itm1" required>
+			</div>
+			<div class="form-group">
+				<label for="itm2">Item 2 Price:</label>
+				<input type="number" id="itm2" name="itm2" required>
+			</div>
+			<div class="form-group">
+				<label for="itm3">Item 3 Price:</label>
+				<input type="number" id="itm3" name="itm3" required>
+			</div>
+			<div class="form-group">
+				<label for="itm4">Item 4 Price:</label>
+				<input type="number" id="itm4" name="itm4" required>
+			</div>
+			<div class="form-group">
+				<label for="itm5">Item 5 Price:</label>
+				<input type="number" id="itm5" name="itm5" required>
+			</div>
+			<div class="form-group">
+				<button type="button" class="btn" onclick="calculate()">Calculate</button>
+			</div>
+		</form>
+		<div class="result" id="result"></div>
+	</div>
+	<script>
+		console.log("wekcome to DMART🛒🛒🛒🛒");
+		console.log("                       billing system                         ");
+		function calculate() {
+	let itm1 = parseInt(document.getElementById("itm1").value);
+	let itm2 = parseInt(document.getElementById("itm2").value);
+	let itm3 = parseInt(document.getElementById("itm3").value);
+	let itm4 = parseInt(document.getElementById("itm4").value);
+	let itm5 = parseInt(document.getElementById("itm5").value);
+	let itmtot = itm1 + itm2 + itm3 + itm4 + itm5;
+	console.log("the itm total is", itmtot);
+	if (itmtot >= 5000) {
+		console.log("the total discount for 5000₹ is 20%");
+		console.log("the total amount before discount is:", itmtot);
+		let Discounted = (20 / 100) * itmtot;
+		console.log("the discounted amount is: ", Discounted);
+		let afterdiscount = itmtot - Discounted;
+		console.log("the amount to be paid is :", afterdiscount);
+		console.log("you saved ", Discounted);
+		console.log("thanks for visiting DMART");
+	} else if (itmtot >= 2000) {
+		console.log("the total discount for 2000₹ is 10%");
+		console.log("the total amount before discount is:", itmtot);
+		let Discounted = (10 / 100) * itmtot;
+		let afterdiscount = itmtot - Discounted;
+		console.log("the amount to be paid is :", afterdiscount);
+		console.log("you saved ", Discounted);
+		console.log("thanks for visiting DMART");
+	} else if (itmtot >= 1000) {
+		console.log("the disscount for 1000₹ is 5%");
+		console.log("the total amount before discount is:", itmtot);
+		let Discounted = (5 / 100) * itmtot;
+		let afterdiscount = itmtot - Discounted;
+		console.log("the amount to be paid is :", afterdiscount);
+		console.log("you saved ", Discounted);
+		console.log("thanks for visiting DMART");
+	} else {
+		console.log("we are sorry, you are not eligible for any discount");
+		console.log("the total amount is:", itmtot);
+		console.log("thanks for visiting DMART");
+	}
+}
